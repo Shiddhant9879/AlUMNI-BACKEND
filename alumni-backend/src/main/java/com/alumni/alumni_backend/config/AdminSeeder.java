@@ -36,8 +36,7 @@ public class AdminSeeder implements CommandLineRunner {
             userRepository.save(admin);
 
             System.out.println("✅ ADMIN user created: " + adminEmail);
-        } else {
-            System.out.println("ℹ️ ADMIN user already exists. Skipping seeding.");
         }
+
     }
 }
