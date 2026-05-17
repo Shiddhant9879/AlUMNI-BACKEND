@@ -15,14 +15,32 @@ public class EmailService {
 
     public void sendResetEmail(String toEmail, String resetLink) {
 
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(toEmail);
-        message.setSubject("Password Reset Request");
-        message.setText(
-                "Click the link below to reset your password:\n\n" +
-                        resetLink +
-                        "\n\nIf you did not request this, ignore this email.");
+        try {
 
-        mailSender.send(message);
+            System.out.println("STARTING EMAIL SEND");
+
+            SimpleMailMessage message = new SimpleMailMessage();
+
+            message.setTo(toEmail);
+
+            message.setSubject("Password Reset Request");
+
+            message.setText(
+                    "Click the link below to reset your password:\n\n"
+                            + resetLink
+                            + "\n\nIf you did not request this, ignore this email.");
+
+            mailSender.send(message);
+
+            System.out.println("EMAIL SENT SUCCESSFULLY");
+
+        } catch (Exception e) {
+
+            System.out.println("EMAIL SEND FAILED");
+
+            e.printStackTrace();
+
+            throw new RuntimeException("EMAIL FAILED");
+        }
     }
 }
