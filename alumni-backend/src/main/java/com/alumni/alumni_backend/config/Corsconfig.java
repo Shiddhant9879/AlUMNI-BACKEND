@@ -18,7 +18,7 @@ public class Corsconfig {
 
                 registry.addMapping("/**")
                         .allowedOrigins(
-                                "http://localhost:5173")
+                                "https://alumni-frontend-tau-three.vercel.app")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
