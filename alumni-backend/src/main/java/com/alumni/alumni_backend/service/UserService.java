@@ -76,7 +76,8 @@ public class UserService {
 
         userRepository.save(user);
 
-        String resetLink = "https://alumni-backend-iquq.onrender.com=" + token;
+        String resetLink = "String resetLink =\r\n" + //
+                "    \"https://alumni-frontend-tau-three.vercel.app/reset-password?token=\" + token" + token;
 
         // 🔐 send via email instead of console
         emailService.sendResetEmail(user.getEmail(), resetLink);
